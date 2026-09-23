@@ -39,7 +39,7 @@
 >   do próprio repositório. Mas, garanta que qualquer um tenha
 >   permissão de acesso ao vídeo através deste link.
 
-<mark>`<preencher>`</mark>
+<mark>`https://youtu.be/RdVis25dXJk?si=M1dvIzwsbUFzjdYr`</mark>
 
 ### Vídeo - Timestamp
 
@@ -48,8 +48,8 @@
 >   será a base de comparação para avaliar se o seu trabalho final
 >   conseguiu ou não reproduzir a referência.
 
-- **Timestamp inicial**: <mark>`<preencher>`</mark>
-- **Timestamp final**: <mark>`<preencher>`</mark>
+- **Timestamp inicial**: <mark>`20:22`</mark>
+- **Timestamp final**: <mark>`20:40`</mark>
 
 ### Imagens
 
