@@ -120,7 +120,7 @@ Para cada um dos requisitos abaixo (detalhados no [Enunciado do Trabalho final -
 > - Esta funcionalidade também deverá ser documentada no arquivo
 >   `README.md` da entrega final.
 
-<mark>`<preencher>`</mark>
+<mark>`Ciclo de dia e noite, podemos passar o tempo e conforme isso acontece o dia escurece ou amanhece.`</mark>
 
 ## Limitações esperadas
 
