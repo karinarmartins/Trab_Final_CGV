@@ -65,19 +65,19 @@
 
 #### Imagem 1
 
-- **Descrição**: <mark>`<preencher>`</mark>
+- **Descrição**: <mark>`Personagem comendo uma pizza`</mark>
 
 ![Imagem 1](images/spec/image1.png)
 
 #### Imagem 2
 
-- **Descrição**: <mark>`<preencher>`</mark>
+- **Descrição**: <mark>`Personagens dormindo em uma cama`</mark>
 
 ![Imagem 2](images/spec/image2.png)
 
 #### Imagem 3
 
-- **Descrição**: <mark>`<preencher>`</mark>
+- **Descrição**: <mark>`Casa do personagem`</mark>
 
 ![Imagem 3](images/spec/image3.png)
 
