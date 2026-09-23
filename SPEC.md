@@ -104,7 +104,7 @@ Para cada um dos requisitos abaixo (detalhados no [Enunciado do Trabalho final -
 <mark>`Teremos a luz do dia onde vira da janela, por locais abertos, e a luz da lampada quando está a noite.`</mark>
 
 ### Mapeamento de texturas em todos os objetos
-<mark>`<preencher>`</mark>
+<mark>`<Provavelmente terá reptição de texturas como o chão ou a parede, pois não podemos esticar a imagem ou dobrar tamanho,etc...>`</mark>
 
 ### Movimentação com curva Bézier cúbica
 <mark>`Movimento do personagem até o objetivo pode seguir uma curva em vez de ser em linha reta.`</mark>
@@ -131,4 +131,4 @@ Para cada um dos requisitos abaixo (detalhados no [Enunciado do Trabalho final -
 > - Para cada item, **explique por que** não será implementado ou por
 >   que será implementado parcialmente.
 
-<mark>`<preencher>`</mark>
+<mark>`Mexer os objetos sobrepostos, transição de iluminação e interação acertiva do personagem com os objetos.`</mark>
