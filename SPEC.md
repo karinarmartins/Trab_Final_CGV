@@ -110,7 +110,7 @@ Para cada um dos requisitos abaixo (detalhados no [Enunciado do Trabalho final -
 <mark>`<preencher>`</mark>
 
 ### Animações baseadas no tempo ($\Delta t$)
-<mark>`<preencher>`</mark>
+<mark>`Quando o personagem usa um móvel, dá pra animar isso como uma transição temporizada.`</mark>
 
 ### Funcionalidade extra obrigatória
 
