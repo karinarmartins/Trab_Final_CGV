@@ -107,7 +107,7 @@ Para cada um dos requisitos abaixo (detalhados no [Enunciado do Trabalho final -
 <mark>`<preencher>`</mark>
 
 ### Movimentação com curva Bézier cúbica
-<mark>`<preencher>`</mark>
+<mark>`Movimento do personagem até o objetivo pode seguir uma curva em vez de ser em linha reta.`</mark>
 
 ### Animações baseadas no tempo ($\Delta t$)
 <mark>`Quando o personagem usa um móvel, dá pra animar isso como uma transição temporizada.`</mark>
