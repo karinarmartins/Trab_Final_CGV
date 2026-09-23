@@ -14,12 +14,12 @@
 - **Aluno 1 - Nome**: <mark>`<preencher>`</mark>
 - **Aluno 1 - Cartão UFRGS**: <mark>`<preencher>`</mark>
 
-- **Aluno 2 - Nome**: <mark>`<preencher>`</mark>
-- **Aluno 2 - Cartão UFRGS**: <mark>`<preencher>`</mark>
+- **Aluno 2 - Nome**: <mark>`Antônio Augusto Specht`</mark>
+- **Aluno 2 - Cartão UFRGS**: <mark>`00595092`</mark>
 
 ## Detalhes do que será implementado
 
-- **Título do trabalho**: <mark>`<preencher>`</mark>
+- **Título do trabalho**: <mark>`colocar nome legal aqui`</mark>
 - **Parágrafo curto descrevendo o que será implementado**: <mark>`<preencher>`</mark>
 
 ## Especificação visual
