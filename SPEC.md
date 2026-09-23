@@ -67,19 +67,19 @@
 
 - **Descrição**: <mark>`<preencher>`</mark>
 
-![Imagem 1](images/spec/image1.jpg)
+![Imagem 1](images/spec/image1.png)
 
 #### Imagem 2
 
 - **Descrição**: <mark>`<preencher>`</mark>
 
-![Imagem 2](images/spec/image2.jpg)
+![Imagem 2](images/spec/image2.png)
 
 #### Imagem 3
 
 - **Descrição**: <mark>`<preencher>`</mark>
 
-![Imagem 3](images/spec/image3.jpg)
+![Imagem 3](images/spec/image3.png)
 
 ## Especificação textual
 
