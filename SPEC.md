@@ -11,16 +11,16 @@
 
 ## Integrantes da dupla
 
-- **Aluno 1 - Nome**: <mark>`<preencher>`</mark>
-- **Aluno 1 - Cartão UFRGS**: <mark>`<preencher>`</mark>
+- **Aluno 1 - Nome**: <mark>`<Karina Ribeiro Martins>`</mark>
+- **Aluno 1 - Cartão UFRGS**: <mark>`<00590451>`</mark>
 
 - **Aluno 2 - Nome**: <mark>`Antônio Augusto Specht`</mark>
 - **Aluno 2 - Cartão UFRGS**: <mark>`00595092`</mark>
 
 ## Detalhes do que será implementado
 
-- **Título do trabalho**: <mark>`colocar nome legal aqui`</mark>
-- **Parágrafo curto descrevendo o que será implementado**: <mark>`<preencher>`</mark>
+- **Título do trabalho**: <mark>`The Simsmulator`</mark>
+- **Parágrafo curto descrevendo o que será implementado**: <mark>`<A ideia é fazer que o personagem tenha ações como comer, dormir, ir ao banheiro, entre outras acções. O ambiente onde irá se passar o jogo será na casa do personagem.>`</mark>
 
 ## Especificação visual
 
