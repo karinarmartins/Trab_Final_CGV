@@ -39,7 +39,7 @@
 >   do próprio repositório. Mas, garanta que qualquer um tenha
 >   permissão de acesso ao vídeo através deste link.
 
-<mark>`https://youtu.be/RdVis25dXJk?si=M1dvIzwsbUFzjdYr`</mark>
+<mark>`<preencher>`</mark>
 
 ### Vídeo - Timestamp
 
@@ -48,8 +48,8 @@
 >   será a base de comparação para avaliar se o seu trabalho final
 >   conseguiu ou não reproduzir a referência.
 
-- **Timestamp inicial**: <mark>`20:22`</mark>
-- **Timestamp final**: <mark>`20:40`</mark>
+- **Timestamp inicial**: <mark>`<preencher>`</mark>
+- **Timestamp final**: <mark>`<preencher>`</mark>
 
 ### Imagens
 
@@ -65,43 +65,43 @@
 
 #### Imagem 1
 
-- **Descrição**: <mark>`Personagem comendo uma pizza`</mark>
+- **Descrição**: <mark>`<preencher>`</mark>
 
-![Imagem 1](images/spec/image1.png)
+![Imagem 1](images/spec/image1.jpg)
 
 #### Imagem 2
 
-- **Descrição**: <mark>`Personagens dormindo em uma cama`</mark>
+- **Descrição**: <mark>`<preencher>`</mark>
 
-![Imagem 2](images/spec/image2.png)
+![Imagem 2](images/spec/image2.jpg)
 
 #### Imagem 3
 
-- **Descrição**: <mark>`Casa do personagem`</mark>
+- **Descrição**: <mark>`<preencher>`</mark>
 
-![Imagem 3](images/spec/image3.png)
+![Imagem 3](images/spec/image3.jpg)
 
 ## Especificação textual
 
 Para cada um dos requisitos abaixo (detalhados no [Enunciado do Trabalho final - Moodle](https://moodle.ufrgs.br/mod/assign/view.php?id=6302370)), escreva um parágrafo **curto** explicando como este requisito será atendido, apontando itens específicos do vídeo/imagens que você incluiu acima que atendem estes requisitos.
 
 ### Malhas poligonais complexas
-<mark>`<preencher>`</mark>
+<mark>`Tera modelos geométricos de móveis na casa onde será representado por malhas poligonais, assim como a intereção deles entre si. Ex: Ter uma mesa no chão e em cima dela ter um vaso de planta, copo, entre outros.`</mark>
 
 ### Transformações geométricas controladas pelo usuário
-<mark>`<preencher>`</mark>
+<mark>`A ideia é que tenhamos ma funcionalidade que podemos adicionar moveis na casa, seria um modo decoração.`</mark>
 
 ### Diferentes tipos de câmeras
-<mark>`<preencher>`</mark>
+<mark>`Teremos a câmera de visão livre e uma focal onde ao selecionar o persongem seguimos as acões que ele faz pela casa.`</mark>
 
 ### Instâncias de objetos
 <mark>`<preencher>`</mark>
 
 ### Testes de intersecção
-<mark>`<preencher>`</mark>
+<mark>`O personagem irá seguir seu caminho delimitado pela sua casa, ou seja, ele irá andar ou interagir só onde será possível`</mark>
 
 ### Modelos de Iluminação em todos os objetos
-<mark>`<preencher>`</mark>
+<mark>`Teremos a luz do dia onde vira da janela, por locais abertos, e a luz da lampada quando está a noite.`</mark>
 
 ### Mapeamento de texturas em todos os objetos
 <mark>`<preencher>`</mark>
