@@ -91,6 +91,8 @@ Para cada um dos requisitos abaixo (detalhados no [Enunciado do Trabalho final -
 ### Transformações geométricas controladas pelo usuário
 <mark>`A ideia é que tenhamos ma funcionalidade que podemos adicionar moveis na casa, seria um modo decoração.`</mark>
 
+> Comentário Professor: No modo de decoração, descrevam explicitamente quais transformações o usuário poderá controlar nos móveis, por exemplo, translação e rotação, e como mouse e teclado serão utilizados. Posicionamento dos móveis com o mouse ou teclado?
+
 ### Diferentes tipos de câmeras
 <mark>`Teremos a câmera de visão livre e uma focal onde ao selecionar o persongem seguimos as acões que ele faz pela casa.`</mark>
 
@@ -103,14 +105,22 @@ Para cada um dos requisitos abaixo (detalhados no [Enunciado do Trabalho final -
 ### Modelos de Iluminação em todos os objetos
 <mark>`Teremos a luz do dia onde vira da janela, por locais abertos, e a luz da lampada quando está a noite.`</mark>
 
+> Comentário Professor: “Luz do dia” e “luz da lâmpada” descrevem fontes de luz, mas não um modelo de iluminação. Especifiquem o modelo de iluminação que será utilizado (Lambert, Phong, Disney BRDF) e em quais objetos especificamente.
+
 ### Mapeamento de texturas em todos os objetos
 <mark>`Provavelmente terá reptição de texturas como o chão ou a parede, pois não podemos esticar a imagem ou dobrar tamanho,etc...`</mark>
+
+> Comentário Professor: O mapeamento de texturas deve ser especificado para todos os objetos da aplicação, utilizando no mínimo três imagens distintas ou texturas procedurais. Já encontraram local para obter as texturas e modelos?
 
 ### Movimentação com curva Bézier cúbica
 <mark>`Movimento do personagem até o objetivo pode seguir uma curva em vez de ser em linha reta.`</mark>
 
+> Comentário Professor: A movimentação com curva de Bézier cúbica não pode ser opcional. A frase "pode seguir uma curva" deve ser substituída por uma definição concreta do objeto que obrigatoriamente seguirá essa trajetória. O movimento dos personagens não me parece uma boa escolha para usar com curva de Bézier, por causa das potênciais colisões com o cenário.
+
 ### Animações baseadas no tempo ($\Delta t$)
 <mark>`Quando o personagem usa um móvel, dá pra animar isso como uma transição temporizada.`</mark>
+
+> Comentário Professor: Todas as movimentações devem ser baseadas em $\Delta t$, incluindo movimentação do personagem, câmeras, animações de interação e demais objetos animados. Não apenas a animação de uso de um móvel. Revisem a aula sobre animações.
 
 ### Funcionalidade extra obrigatória
 
@@ -122,6 +132,8 @@ Para cada um dos requisitos abaixo (detalhados no [Enunciado do Trabalho final -
 
 <mark>`Ciclo de dia e noite, podemos passar o tempo e conforme isso acontece o dia escurece ou amanhece.`</mark>
 
+> Comentário Professor: O ciclo de dia e noite é algo muito simples para ser utilizado como funcionalidade extra. Sugiro mudar para "mouse picking", isto é, posicionamento em 3D dos móveis/etc usando o mouse.
+
 ## Limitações esperadas
 
 > [!IMPORTANT]
@@ -132,3 +144,5 @@ Para cada um dos requisitos abaixo (detalhados no [Enunciado do Trabalho final -
 >   que será implementado parcialmente.
 
 <mark>`Mexer os objetos sobrepostos, transição de iluminação e interação acertiva do personagem com os objetos.`</mark>
+
+> Comentário Professor: A seção de limitações precisa dizer concretamente o que não será implementado ou será implementado parcialmente e explicar o motivo. Atualmente ela lista possíveis dificuldades de implementação, mas não define claramente as limitações.
