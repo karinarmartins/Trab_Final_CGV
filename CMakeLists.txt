@@ -7,6 +7,7 @@
 # ser compilados.
 set(SOURCES
   src/main.cpp
+  src/cena.cpp
   src/correcao.cpp
   src/textrendering.cpp
   src/tiny_obj_loader.cpp
@@ -62,6 +63,11 @@ target_include_directories(${EXECUTABLE_NAME} BEFORE PRIVATE ${PROJECT_SOURCE_DI
 if(WIN32)
 
   if(MINGW)
+
+    # Linka a runtime do C++ estaticamente, para o main.exe não depender de
+    # libstdc++-6.dll / libgcc_s_seh-1.dll (evita o erro 0xc0000279 quando
+    # há outra versão dessas DLLs no PATH).
+    set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -static")
 
     # Aqui tentamos descobrir qual libc do Widows está sendo usada
     # pelo compilador MinGW: msvcrt (antiga) ou ucrt (nova). Também

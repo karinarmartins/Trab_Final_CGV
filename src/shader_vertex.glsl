@@ -11,57 +11,70 @@ uniform mat4 model;
 uniform mat4 view;
 uniform mat4 projection;
 
-// Atributos de vértice que serão gerados como saída ("out") pelo Vertex Shader.
-// ** Estes serão interpolados pelo rasterizador! ** gerando, assim, valores
-// para cada fragmento, os quais serão recebidos como entrada pelo Fragment
-// Shader. Veja o arquivo "shader_fragment.glsl".
+// Material do objeto (mesmos valores de shader_fragment.glsl e cena.cpp)
+#define MAT_ESTATUA 10
+uniform int object_id;
+
+// Fontes de luz (enviadas por Cena_Desenhar() em cena.cpp)
+uniform vec4 sun_direction;  // sentido do ponto para o sol
+uniform vec4 lamp_position;  // posição da lâmpada (luz pontual)
+
+// Saídas interpoladas pelo rasterizador
 out vec4 position_world;
 out vec4 position_model;
 out vec4 normal;
+out vec4 normal_model;
 out vec2 texcoords;
+
+// Iluminação calculada por vértice (interpolação de Gouraud). Só é usada
+// pela estátua; nos outros objetos a iluminação é feita por pixel.
+out vec3 gouraud_diffuse;
+out vec3 gouraud_specular;
+
+// Mesmas cores/constantes de luz usadas em shader_fragment.glsl
+const vec3  SUN_COLOR  = vec3(1.00, 0.95, 0.85);
+const vec3  LAMP_COLOR = vec3(1.00, 0.75, 0.45);
+const vec3  AMBIENT    = vec3(0.22, 0.24, 0.28);
 
 void main()
 {
-    // A variável gl_Position define a posição final de cada vértice
-    // OBRIGATORIAMENTE em "normalized device coordinates" (NDC), onde cada
-    // coeficiente estará entre -1 e 1 após divisão por w.
-    // Veja {+NDC2+}.
-    //
-    // O código em "main.cpp" define os vértices dos modelos em coordenadas
-    // locais de cada modelo (array model_coefficients). Abaixo, utilizamos
-    // operações de modelagem, definição da câmera, e projeção, para computar
-    // as coordenadas finais em NDC (variável gl_Position). Após a execução
-    // deste Vertex Shader, a placa de vídeo (GPU) fará a divisão por W. Veja
-    // slides 41-67 e 69-86 do documento Aula_09_Projecoes.pdf.
-
     gl_Position = projection * view * model * model_coefficients;
 
-    // Como as variáveis acima  (tipo vec4) são vetores com 4 coeficientes,
-    // também é possível acessar e modificar cada coeficiente de maneira
-    // independente. Esses são indexados pelos nomes x, y, z, e w (nessa
-    // ordem, isto é, 'x' é o primeiro coeficiente, 'y' é o segundo, ...):
-    //
-    //     gl_Position.x = model_coefficients.x;
-    //     gl_Position.y = model_coefficients.y;
-    //     gl_Position.z = model_coefficients.z;
-    //     gl_Position.w = model_coefficients.w;
-    //
-
-    // Agora definimos outros atributos dos vértices que serão interpolados pelo
-    // rasterizador para gerar atributos únicos para cada fragmento gerado.
-
-    // Posição do vértice atual no sistema de coordenadas global (World).
     position_world = model * model_coefficients;
-
-    // Posição do vértice atual no sistema de coordenadas local do modelo.
     position_model = model_coefficients;
 
-    // Normal do vértice atual no sistema de coordenadas global (World).
-    // Veja slides 123-151 do documento Aula_07_Transformacoes_Geometricas_3D.pdf.
     normal = inverse(transpose(model)) * normal_coefficients;
     normal.w = 0.0;
+    normal_model = normal_coefficients;
+    normal_model.w = 0.0;
 
-    // Coordenadas de textura obtidas do arquivo OBJ (se existirem!)
     texcoords = texture_coefficients;
-}
 
+    gouraud_diffuse  = vec3(0.0);
+    gouraud_specular = vec3(0.0);
+
+    if (object_id == MAT_ESTATUA)
+    {
+        // Modelo de Blinn-Phong avaliado nos VÉRTICES (Gouraud).
+        vec4 camera_position = inverse(view) * vec4(0.0, 0.0, 0.0, 1.0);
+        vec4 n = normalize(normal);
+        vec4 v = normalize(camera_position - position_world);
+
+        // Sol
+        vec4 ls = normalize(sun_direction);
+        vec4 hs = normalize(ls + v);
+        gouraud_diffuse  += SUN_COLOR * max(0.0, dot(n, ls));
+        gouraud_specular += SUN_COLOR * pow(max(0.0, dot(n, hs)), 30.0);
+
+        // Lâmpada
+        vec4  dl  = lamp_position - position_world;
+        float d   = length(dl);
+        float att = 1.0 / (1.0 + 0.7 * d * d);
+        vec4  ll  = dl / d;
+        vec4  hl  = normalize(ll + v);
+        gouraud_diffuse  += LAMP_COLOR * att * max(0.0, dot(n, ll));
+        gouraud_specular += LAMP_COLOR * att * pow(max(0.0, dot(n, hl)), 30.0);
+
+        gouraud_diffuse += AMBIENT;
+    }
+}

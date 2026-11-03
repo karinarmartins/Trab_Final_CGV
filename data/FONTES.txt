@@ -1,2 +1,12 @@
-https://polyhaven.com/a/rocky_terrain_02
-https://polyhaven.com/a/red_brick
+Texturas (Poly Haven, licença CC0):
+https://polyhaven.com/a/rocky_terrain_02      -> rocky_terrain_02_diff_1k.jpg (terreno, estátua)
+https://polyhaven.com/a/red_brick             -> red_brick_diff_1k.jpg (paredes externas)
+https://polyhaven.com/a/laminate_floor_02     -> laminate_floor_02_diff_1k.jpg (piso sala/quarto)
+https://polyhaven.com/a/floor_tiles_06        -> floor_tiles_06_diff_1k.jpg (piso banheiro)
+https://polyhaven.com/a/painted_plaster_wall  -> painted_plaster_wall_diff_1k.jpg (paredes internas)
+https://polyhaven.com/a/wood_table_001        -> wood_table_001_diff_1k.jpg (móveis de madeira)
+https://polyhaven.com/a/fabric_pattern_07     -> fabric_pattern_07_col_1_1k.jpg (sofá, cama, cúpula)
+
+Modelos:
+bunny.obj, sphere.obj, plane.obj -> código base da disciplina (INF01047)
+cube.obj -> cubo unitário gerado para este trabalho
