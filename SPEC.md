@@ -1,10 +1,12 @@
 # Especificação da Implementação
 
 > [!CAUTION]
+>
 > - Você <ins>**não pode utilizar ferramentas de IA para escrever esta
 >   especificação**</ins>
 
 > [!WARNING]
+>
 > - Após a entrega da primeira versão completa, esta especificação não
 >   poderá ser alterada. A implementação final deverá corresponder ao que
 >   estiver descrito neste arquivo.
@@ -27,6 +29,7 @@
 ### Vídeo - Link
 
 > [!IMPORTANT]
+>
 > - Coloque aqui um link para um vídeo que mostre a aplicação gráfica
 >   de referência que você vai implementar. **Sua implementação deverá
 >   ser o mais parecido possível com o que é mostrado no vídeo (mais
@@ -44,6 +47,7 @@
 ### Vídeo - Timestamp
 
 > [!IMPORTANT]
+>
 > - Coloque aqui um **intervalo de ~30 segundos** do vídeo acima, que
 >   será a base de comparação para avaliar se o seu trabalho final
 >   conseguiu ou não reproduzir a referência.
@@ -54,6 +58,7 @@
 ### Imagens
 
 > [!IMPORTANT]
+>
 > - Coloque aqui **três imagens** capturadas do vídeo acima, que você
 >   irá usar como ilustração para as explicações que vêm abaixo.
 > - As imagens devem estar armazenadas neste repositório, no diretório
@@ -86,49 +91,83 @@
 Para cada um dos requisitos abaixo (detalhados no [Enunciado do Trabalho final - Moodle](https://moodle.ufrgs.br/mod/assign/view.php?id=6302370)), escreva um parágrafo **curto** explicando como este requisito será atendido, apontando itens específicos do vídeo/imagens que você incluiu acima que atendem estes requisitos.
 
 ### Malhas poligonais complexas
+
 <mark>`Tera modelos geométricos de móveis na casa onde será representado por malhas poligonais, assim como a intereção deles entre si. Ex: Ter uma mesa no chão e em cima dela ter um vaso de planta, copo, entre outros.`</mark>
 
 ### Transformações geométricas controladas pelo usuário
-<mark>`A ideia é que tenhamos ma funcionalidade que podemos adicionar moveis na casa, seria um modo decoração.`</mark>
+
+<mark>`A tecla Tab ativa o modo decoração, no qual a câmera vai para a visão de cima mostrada na Imagem 3 e o usuário reposiciona os móveis. Duas transformações ficam sob controle direto do usuário:
+
+Translação — feita com o mouse. Com um móvel selecionado, ele acompanha continuamente o ponto em que o raio lançado a partir do cursor intersecta o plano do chão (y = 0).
+Rotação — feita com o teclado.
+O clique esquerdo confirma a posição e Esc cancela, devolvendo o móvel à posição anterior. Cada móvel carrega sua própria matriz; o usuário altera T e R, enquanto S permanece fixo para preservar a escala original do modelo. Antes de confirmar, a nova posição é validada pelo teste AABB × AABB descrito na seção de intersecções: havendo sobreposição com outro móvel, o objeto é desenhado em tom avermelhado e a confirmação é bloqueada.`</mark>
 
 ### Diferentes tipos de câmeras
+
 <mark>`Teremos a câmera de visão livre e uma focal onde ao selecionar o persongem seguimos as acões que ele faz pela casa.`</mark>
 
 ### Instâncias de objetos
+
 <mark>`Teremos mais de um móvel do mesmo tipo, que poderá ser rotacionado em diferentes posições`</mark>
 
 ### Testes de intersecção
+
 <mark>`O personagem irá seguir seu caminho delimitado pela sua casa, ou seja, ele irá andar ou interagir só onde será possível`</mark>
 
 ### Modelos de Iluminação em todos os objetos
-<mark>`Teremos a luz do dia onde vira da janela, por locais abertos, e a luz da lampada quando está a noite.`</mark>
+
+<mark>`Todos os objetos da cena são iluminados com dois modelos distintos:
+
+Difuso de Lambert — paredes, piso, gramado do jardim e superfícies de tecido, entre outros.
+Blinn-Phong — superfícies com brilho especular visível: a pia, a bancada da cozinha, a tela da televisão e as maçanetas das portas.`</mark>
 
 ### Mapeamento de texturas em todos os objetos
-<mark>`Provavelmente terá reptição de texturas como o chão ou a parede, pois não podemos esticar a imagem ou dobrar tamanho,etc...`</mark>
+
+<mark>`## Mapeamento de Texturas
+
+| Objeto                            | Textura                          |
+| :-------------------------------- | :------------------------------- |
+| **Piso interno**                  | Cerâmica (imagem, com repetição) |
+| **Paredes externas**              | Tijolo (imagem, com repetição)   |
+| **Mesa, cadeiras, estante, cama** | Madeira (imagem)                 |
+| **Edredom e estofados**           | Tecido (imagem)                  |
+| **Gramado do jardim**             | Grama (imagem, com repetição)    |
+| **Bancada e pia**                 | Granito (imagem)                 |
+
+São seis imagens distintas. O piso, as paredes de tijolo e o gramado usam GL_REPEAT com coordenadas UV multiplicadas por um fator de tiling, evitando esticar a imagem em superfícies grandes, é a repetição que se observa no piso da cozinha na Imagem 1 e no gramado da Imagem 3.
+
+Origem dos assets: as texturas virão do ambientCG e do Poly Haven, ambos CC0. Os modelos 3D virão do Kenney e do Quaternius, com os objetos restantes modelados no Blender e exportados em obejtos com coordenadas UV.`</mark>
 
 ### Movimentação com curva Bézier cúbica
-<mark>`Movimento do personagem até o objetivo pode seguir uma curva em vez de ser em linha reta.`</mark>
+
+<mark>`A câmera percorre obrigatoriamente uma curva de Bézier cúbica em toda transição entre a câmera livre e a câmera look-at do personagem, acionada pela tecla C. Os quatro pontos de controle são definidos no momento da troca: P0 é a posição atual da câmera, P3 é a posição final junto ao personagem, e P1 e P2 são obtidos elevando e afastando os pontos intermediários, de modo que a câmera descreva um arco por cima da cena em vez de atravessar paredes em linha reta.`</mark>
 
 ### Animações baseadas no tempo ($\Delta t$)
-<mark>`Quando o personagem usa um móvel, dá pra animar isso como uma transição temporizada.`</mark>
+
+<mark>`No laço principal, calculamos o dt a cada quadro para que toda a aplicação rode de forma suave, sem amarrar a velocidade dos movimentos ao framerate. Usamos esse valor para controlar desde a caminhada do personagem e os movimentos de câmera — livres, look-at ou via curvas de Bézier — até as animações dos modelos (como comer e dormir), a abertura de portas e o ciclo de iluminação do dia.`</mark>
 
 ### Funcionalidade extra obrigatória
 
 > [!IMPORTANT]
+>
 > - Descreva a funcionalidade extra relacionada à Computação Gráfica
 >   que será implementada.
 > - Esta funcionalidade também deverá ser documentada no arquivo
 >   `README.md` da entrega final.
 
-<mark>`Ciclo de dia e noite, podemos passar o tempo e conforme isso acontece o dia escurece ou amanhece.`</mark>
+<mark>`Mouse picking — seleção e posicionamento dos móveis em 3D com o mouse. A posição do cursor em pixels é convertida para coordenadas normalizadas, elevada a clip space e multiplicada pelas inversas das matrizes de projeção e de vista, produzindo um raio em coordenadas de mundo com origem na câmera.`</mark>
 
 ## Limitações esperadas
 
 > [!IMPORTANT]
+>
 > - Coloque aqui uma lista de detalhes visuais ou de interação que
 >   aparecem no vídeo e/ou imagens acima, mas que você **não pretende
 >   implementar** ou que você **irá implementar parcialmente**.
 > - Para cada item, **explique por que** não será implementado ou por
 >   que será implementado parcialmente.
 
-<mark>`Mexer os objetos sobrepostos, transição de iluminação e interação acertiva do personagem com os objetos.`</mark>
+<mark>`Múltiplos personagens e NPCs: a Imagem 2 mostra dois Sims na cama. A aplicação terá apenas um personagem controlável e personagens disputando o mesmo espaço.
+Sombras projetadas: sombras dos personagens. A iluminação terá local (Lambert e Blinn-Phong por fragmento), e shadow mapping deve ser a parte mais complicada de implementar.
+Detalhamento do jardim: o exterior da Imagem 3 traz fonte, flamingos, árvore e canteiros floridos. O jardim será implementado de forma simplificada, com gramado, calçada e alguns arbustos instanciados, por limitação de tempo de modelagem.
+Interação fisicamente precisa com os objetos: o personagem caminha até o móvel e executa a animação correspondente, o problema é a interação do personagem com o objeto ser veridica e não só pegar um item no ar por exemplo.`</mark>
