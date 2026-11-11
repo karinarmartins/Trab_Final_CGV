@@ -130,12 +130,23 @@ Blinn-Phong — superfícies com brilho especular visível: a pia, a bancada da 
 e do sofá seguem o mesmo caminho e entram antes da entrega, fechando seis
 imagens distintas.
 
-<p align="center">
-  <img src="data/textures/textura_chao.png" width="110" title="Piso">
-  <img src="data/textures/textura_gramada.png" width="110" title="Gramado">
-  <img src="data/textures/textura_arvore.png" width="110" title="Árvore">
-</p>
+#### Textura 1 — Piso
 
+- **Descrição:** `Piso de pedra, aplicado na calçada e na área externa da casa`
+
+![Textura do piso](images/spec/textura_chao.png)
+
+#### Textura 2 — Gramado
+
+- **Descrição:** `Grama do jardim, repetida com GL_REPEAT ao longo do terreno`
+
+![Textura do gramado](images/spec/textura_gramada.png)
+
+#### Textura 3 — Vegetação
+
+- **Descrição:** `Folhagem das árvores e arbustos do jardim`
+
+![Textura da árvore](images/spec/textura_arvore.png)
 As superfícies grandes como chão, gramado e tijolo, são repetidas
 em vez de esticadas. O resto usa direto as coordenadas UV do
 próprio modelo.
