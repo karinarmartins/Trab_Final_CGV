@@ -123,20 +123,24 @@ Blinn-Phong — superfícies com brilho especular visível: a pia, a bancada da 
 
 ### Mapeamento de texturas em todos os objetos
 
-<mark>`## Mapeamento de Texturas
+<mark>`### Mapeamento de texturas em todos os objetos
 
-| Objeto                            | Textura                          |
-| :-------------------------------- | :------------------------------- |
-| **Piso interno**                  | Cerâmica (imagem, com repetição) |
-| **Paredes externas**              | Tijolo (imagem, com repetição)   |
-| **Mesa, cadeiras, estante, cama** | Madeira (imagem)                 |
-| **Edredom e estofados**           | Tecido (imagem)                  |
-| **Gramado do jardim**             | Grama (imagem, com repetição)    |
-| **Bancada e pia**                 | Granito (imagem)                 |
+<mark>`Toda superfície da casa é texturizada e versionados em
+`data/textures/`; as paredes de tijolo, a madeira dos móveis e o tecido da cama
+e do sofá seguem o mesmo caminho e entram antes da entrega, fechando seis
+imagens distintas.
 
-São seis imagens distintas. O piso, as paredes de tijolo e o gramado usam GL_REPEAT com coordenadas UV multiplicadas por um fator de tiling, evitando esticar a imagem em superfícies grandes, é a repetição que se observa no piso da cozinha na Imagem 1 e no gramado da Imagem 3.
+<p align="center">
+  <img src="data/textures/textura_chao.png" width="110" title="Piso">
+  <img src="data/textures/textura_gramada.png" width="110" title="Gramado">
+  <img src="data/textures/textura_arvore.png" width="110" title="Árvore">
+</p>
 
-Origem dos assets: as texturas virão do ambientCG e do Poly Haven, ambos CC0. Os modelos 3D virão do Kenney e do Quaternius, com os objetos restantes modelados no Blender e exportados em obejtos com coordenadas UV.`</mark>
+As superfícies grandes como chão, gramado e tijolo, são repetidas
+em vez de esticadas. O resto usa direto as coordenadas UV do
+próprio modelo.
+
+As texturas vêm da coleção hand-painted do OpenGameArt.org.`</mark>`</mark>
 
 ### Movimentação com curva Bézier cúbica
 
